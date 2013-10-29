@@ -142,6 +142,7 @@ class MensalidadesController extends AppController {
                         $mensalidade['Mensalidade']['id'] = $idMensalidade;
                         $mensalidade['Mensalidade']['data_pagamento'] = date('Y-m-d');
                         $mensalidade['Mensalidade']['status'] = 2;
+						$mensalidade['Mensalidade']['valor_pago'] = '';
 
                         if($this->Mensalidade->save($mensalidade)){
                             return $mensalidade;
