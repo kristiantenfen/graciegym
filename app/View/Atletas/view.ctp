@@ -164,7 +164,7 @@
                                             <th width='12%'<?php echo $this->Paginator->sort('Vencimento'); ?></th>
 <th width='15%'<?php echo $this->Paginator->sort('Valor'); ?></th>
                                             <th width='12%'<?php echo $this->Paginator->sort('Data pagamento'); ?></th>
-<th width='20%'<?php echo $this->Paginator->sort('Modalidade'); ?></th>
+<th width='10%'<?php echo $this->Paginator->sort('Modalidade'); ?></th>
                                             <th width='10%'<?php echo $this->Paginator->sort('Status'); ?></th>
                     
                     <th width='25%' class="actions"><?php echo __('Ações'); ?></th>
