@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 $(function() {
-    $(".date").datepicker({
+    $(".date, #filterVencimento-between, #filterPagamento-between").datepicker({
         
         dateFormat: 'dd/mm/yy',
         dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'

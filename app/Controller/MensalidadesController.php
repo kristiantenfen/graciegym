@@ -8,6 +8,8 @@ App::uses('AppController', 'Controller');
 class MensalidadesController extends AppController {
     
     public $uses = array('Mensalidade', 'Matricula', 'Modalidade');
+    
+    public $paginate = array('limit' => 100000);
 
 /**
  * index method
@@ -28,7 +30,7 @@ class MensalidadesController extends AppController {
         ));
             
             $this->FilterResults->addFilters(array( 
-                    'status' => array(
+                'status' => array(
                         'Mensalidade.status' => array(
                              'operator' => '=',
                              'select' => array(null => 'Todos', 1 => 'Pago', 0 => 'Pendente', 2 => 'Anulada')
@@ -39,7 +41,25 @@ class MensalidadesController extends AppController {
                              'operator' => '=',
                              'select' => array(null => 'Todos', $this->Modalidade->find('list'))
                             )
+                        ),
+                'vencimento' => array(
+                        'Mensalidade.vencimento' => array(
+                            'operator' => 'BETWEEN',
+                            'between' => array(
+                                'text' => __(' e ', true),
+                                'date' => true
+                            )
                         )
+                    ),
+                'pagamento' => array(
+                        'Mensalidade.data_pagamento' => array(
+                            'operator' => 'BETWEEN',
+                            'between' => array(
+                                'text' => __(' e ', true),
+                                'date' => true
+                            )
+                        )
+                    )
                     
                
                )
@@ -49,6 +69,7 @@ class MensalidadesController extends AppController {
             $this->FilterResults->setPaginate('conditions', $this->FilterResults->getConditions());
             
 		$this->Mensalidade->recursive = 2;
+                
 		$this->set('mensalidades', $this->paginate());
 	}
 
