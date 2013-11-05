@@ -65,7 +65,7 @@ class FilterResultsComponent extends Component {
         ),
         'explode' => array(
             'character'   => ' ',
-            'concatenate' => 'AND',
+            'concatenate' => 'OR',
         ),
         'label' => array(
             'prefix'     => 'filter',
@@ -272,7 +272,7 @@ class FilterResultsComponent extends Component {
         if (count($this->_conditions) == 0) {
             return $this->make();
         }
-
+       
         return $this->_conditions;
     }   
 
@@ -421,9 +421,12 @@ class FilterResultsComponent extends Component {
         
         if ($this->getOption('filters')) {
             $this->_options['filters'] += $filters;
+            
         } else {
             $this->_options['filters'] = $filters;
         }
+        
+        
     }
 
 /**
@@ -435,7 +438,7 @@ class FilterResultsComponent extends Component {
  * @since 1.0
  */
     public function make() {
-        
+
         if (isset($this->controller->request->data[$this->getOption('label', 'prefix')])) {
             $this->_redirectToNamedUrl();
             return;
@@ -561,12 +564,10 @@ class FilterResultsComponent extends Component {
     protected function _filterFields($filters, $condition = array()) {
 
         foreach ($filters as $key => $value) {
-
             switch (mb_strtolower($key, 'utf-8')) {
                 case 'not':
                 case 'and':
                 case 'or':
-
                     $conditionOfFilter = $this->_filterFields($value);
                     if (count($conditionOfFilter) > 0) {
                         if (!isset($condition[$key])) {
@@ -578,14 +579,17 @@ class FilterResultsComponent extends Component {
                     break;
                 
                 default:
-                    $condition += (is_array($value))
+                   // erro ao inserir nova condition
+                    // estava assim $condition += 
+                    
+                    $condition[] = (is_array($value))
                          ? $this->_makeConditions($key, $value)
                          : $this->_makeConditions($value);
+                        
                     break;
             }
 
         }
-        
         return $condition;
     }    
 
@@ -695,7 +699,6 @@ class FilterResultsComponent extends Component {
 
             
         }
-        
         return $condition;
     }
 
@@ -799,7 +802,6 @@ protected function _getFieldParams($more = null, $between = false) {
 
         $this->controller->request->data[$this->getOption('label', 'prefix')][$this->getOption('label', 'fieldModel')][$field] = $this->_getFieldParams('fieldModel');
         $this->controller->request->data[$this->getOption('label', 'prefix')][$this->getOption('label', 'operator')][$field]   = $this->_getFieldParams('operator');
-        
         return $condition;
     }
 
