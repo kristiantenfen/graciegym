@@ -4,6 +4,7 @@
         <?php 
               echo $this->FilterForm->create();
               echo $this->FilterForm->input('modalidade', array('label' => 'Modalidade'));
+               echo $this->FilterForm->input('atleta', array('label' => 'Atleta'));
               echo $this->FilterForm->end(array('label' => 'Buscar', 'class' => 'btn btn-info', 'div' => true));
         ?>    
         </div> 

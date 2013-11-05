@@ -155,7 +155,7 @@ $cakeDescription = __d('Gracie Gym', 'Gracie Gym: Jiu-Jitsu Defesa pessoal');
             </li>
              <li class="active">
                 <a href="<?php echo $this->Html->url('/mensalidades', true)?>">
-                    <span class="isw-grid"></span><span class="text">Mesalidades</span>
+                    <span class="isw-grid"></span><span class="text">Mensalidades</span>
                 </a>
             </li>
           <!--  <li class="openable">
