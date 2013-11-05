@@ -22,6 +22,15 @@ class MatriculasController extends AppController {
                              'operator' => '=',
                              'select' => array(null => 'Todos', $this->Modalidade->find('list'))
                             )
+                        ),
+                'atleta' => array(
+                        'Atleta.nome' => array(
+                             'operator' => 'LIKE',
+                             'value' => array(
+                                'before' => '%', // opcional
+                                'after'  => '%'  // opcional
+                                 )
+                            )
                         )
                     
                
@@ -31,7 +40,7 @@ class MatriculasController extends AppController {
 
             // Define conditions
             $this->FilterResults->setPaginate('conditions', $this->FilterResults->getConditions());
-		$this->Matricula->recursive = 0;
+		$this->Matricula->recursive = 2;
 		$this->set('matriculas', $this->paginate());
 	}
 
