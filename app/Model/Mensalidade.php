@@ -46,6 +46,7 @@ class Mensalidade extends AppModel {
 	);
         
         
+      
         
         /**
  * add method
@@ -120,7 +121,4 @@ class Mensalidade extends AppModel {
 		
 	}
         
-        
-        
-      
 }
