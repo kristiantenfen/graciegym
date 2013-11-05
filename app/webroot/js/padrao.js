@@ -70,13 +70,6 @@ $(function() {
 			});
 	});
 	
-	$('#campoBuscaProdutos').keyup(function(){
-		var valor = $('#campoBuscaProdutos').val();
-		
-		$.post('/'+baseUrl+'/produtos/busca',{nome: valor, tipo: 1}, function(data) {
-			$('#resultadoBuscaProdutos').html(data);
-			});
-	});
 	
 	$('#savaMatricula').click(function(e){
 		if(!$('#idAtleta').length){
@@ -96,8 +89,14 @@ $(function() {
 	 $( ".calendar" ).datepicker({ altFormat: "(d-m-Y)", buttonImage: "/images/datepicker.gif" });
          
          
-         
-	
+//         $('input[type=submit]').live('click', function(){
+//             
+//            $('body').append("<div class='ui-widget-overlay' style='width: 1423px; height: 3062px; z-index: 1006;'>\n\
+//                                <div style='display: block; z-index: 1007; margin-left:50%;margin-top:20%;'>\n\
+//                                    <img src='./img/loaders/loader_bw.gif' title='c_loader_ye.gif'/>\n\
+//                                </div>\n\
+//                            </div>");
+//         });
     
     
 });
