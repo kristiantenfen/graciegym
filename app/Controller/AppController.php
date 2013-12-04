@@ -49,7 +49,7 @@ class AppController extends Controller {
                 '<=' => 'less or equal to'
             )
     ));
-    public $components = array('Session',
+    public $components = array('RequestHandler', 'Session',
         'FilterResults.FilterResults' => array(
             'auto' => array(
                 'paginate' => false,
@@ -61,6 +61,7 @@ class AppController extends Controller {
             )
         )
     );
+    
 
     public function beforeFilter() {
         parent::beforeFilter();

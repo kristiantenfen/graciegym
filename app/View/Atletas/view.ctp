@@ -171,29 +171,40 @@
                 </tr>
             </thead>
             <tbody>
-                 <?php foreach ($mensalidades as &$mensalidade): ?>
+                 <?php foreach ($mensalidades as &$mensalidade): 
+                    
+                 $status = 0;
+                 switch($mensalidade['Mensalidade']['status']){
+                            case 1:
+                                $statusNome = 'Pago';
+                                $status = 1;
+                                $valor = $this->Number->currency($mensalidade['Mensalidade']['valor_pago'], 'Br');
+                                break;
+                            case 2:
+                                $statusNome = 'Anulada';
+                                $status = 2;
+                                $valor = 'R$ 0,00';
+                                break;
+                            case 0:
+                                $statusNome = 'Pendente';
+                                $status = 0;
+                                $valor = $this->Number->currency($mensalidade['Matricula']['valor'], 'Br');
+                                break;
+}
+ 
+
+
+
+
+?>
 	<tr>
 		<td><?php echo h($this->Locale->date($mensalidade['Mensalidade']['vencimento'])); ?>&nbsp;</td>
-<td><?php echo h($this->Number->currency($mensalidade['Matricula']['valor'], 'Br')); ?>&nbsp;</td>
+<td><?php echo $valor; ?>&nbsp;</td>
 		<td class='data'><?php echo h($this->Locale->date($mensalidade['Mensalidade']['data_pagamento'])); ?>&nbsp;</td>
 <td><?php echo h($mensalidade['Modalidade']['nome']); ?>&nbsp;</td>
 		
-		<?php $status = 0;?>
-		<td class='status'><?php switch($mensalidade['Mensalidade']['status']){
-                            case 1:
-                                echo 'Pago';
-                                $status = 1;
-                                break;
-                            case 2:
-                                echo 'Anulada';
-                                $status = 2;
-                                break;
-                            case 0:
-                                echo 'Pendente';
-                                $status = 0;
-                                break;
-}
- ?>&nbsp;</td>
+
+		<td class='status'><?php echo $statusNome?>&nbsp;</td>
 		<td class="actions">
 			<?php 
                             if($status == 0){    

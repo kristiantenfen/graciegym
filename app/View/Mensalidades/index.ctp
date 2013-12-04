@@ -38,28 +38,39 @@
                 <tr> 
             <td><?php echo h($mensalidade['Matricula']['Atleta']['nome']); ?>&nbsp;</td>
             <td><?php echo h($mensalidade['Matricula']['Modalidade']['nome']); ?>&nbsp;</td>
-		<td><?php switch($mensalidade['Mensalidade']['status']){
-                                case 1:
-                                    echo 'Pago';
-                                    break;
-                                case 2:
-                                    echo 'Anulada';
-                                    break;
-                                case 0:
-                                    echo 'Pendente';
-                                    break;
+		<td><?php 
+                 $status = 0;
+                 switch($mensalidade['Mensalidade']['status']){
+                            case 1:
+                                $statusNome = 'Pago';
+                                $status = 1;
+                                $valor = $mensalidade['Mensalidade']['valor_pago'];
+                                $total_matricula += $mensalidade['Mensalidade']['valor_pago'];
+                                break;
+                            case 2:
+                                $statusNome = 'Anulada';
+                                $status = 2;
+                                $valor = $mensalidade['Matricula']['valor'];
+                                $total_matricula += $mensalidade['Matricula']['valor'];
+                                break;
+                            case 0:
+                                $statusNome = 'Pendente';
+                                $status = 0;
+                                $valor = $mensalidade['Matricula']['valor'];
+                                $total_matricula += $mensalidade['Matricula']['valor'];
+                                break;
                         
                     
                     
                 }
-?>&nbsp;</td>
-                <td><?php echo h($this->Number->currency($mensalidade['Matricula']['valor'], 'Br')); ?>&nbsp;</td>
+echo $statusNome?>&nbsp;</td>
+                <td><?php echo $this->Number->currency($valor, 'Br'); ?>&nbsp;</td>
 		<td><?php echo h($this->Number->currency($mensalidade['Mensalidade']['valor_pago'], 'Br')); ?>&nbsp;</td>
 		<td><?php echo h($this->Locale->date($mensalidade['Mensalidade']['vencimento'])); ?>&nbsp;</td>
                 <td><?php echo h($this->Locale->date($mensalidade['Mensalidade']['data_pagamento'])); ?>&nbsp;</td>
 	</tr>
          <?php $total += $mensalidade['Mensalidade']['valor_pago']; 
-                $total_matricula += $mensalidade['Matricula']['valor'];
+                
          
          ?>
 <?php endforeach; ?>

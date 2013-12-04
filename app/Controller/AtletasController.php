@@ -30,6 +30,8 @@ class AtletasController extends AppController {
                 )
             );
 
+           
+             
             // Define conditions
             $this->FilterResults->setPaginate('conditions', $this->FilterResults->getConditions());
 		$this->Atleta->recursive = 2;

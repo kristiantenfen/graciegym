@@ -11,6 +11,7 @@ class MensalidadesController extends AppController {
 
     public $uses = array('Mensalidade', 'Matricula', 'Modalidade');
     public $paginate = array('limit' => 100000);
+    
 
     /**
      * index method
@@ -18,8 +19,7 @@ class MensalidadesController extends AppController {
      * @return void
      */
     public function index() {
-
-
+        
         $this->Mensalidade->bindModel(array(
             'belongsTo' => array(
                 'Matricula' => array('foreignKey' => false,
@@ -68,6 +68,8 @@ class MensalidadesController extends AppController {
             )
                 )
         );
+
+        
         $this->FilterResults->setPaginate('conditions', $this->FilterResults->getConditions());
 
         $this->Mensalidade->recursive = 2;
@@ -83,6 +85,16 @@ class MensalidadesController extends AppController {
      * @return void
      */
     public function view($id = null) {
+        
+        
+        $params = array(
+        'download' => true,
+        'name' => 'example.pdf',
+        'paperOrientation' => 'portrait',
+        'paperSize' => 'legal'
+    );
+        $this->set($params);
+        
         if (!$this->Mensalidade->exists($id)) {
             throw new NotFoundException(__('Invalid mensalidade'));
         }

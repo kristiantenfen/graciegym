@@ -136,6 +136,17 @@ INSERT INTO `faixas` (`id`, `cor`, `created`) VALUES
 INSERT INTO `graduacao` (`id`, `inicio`, `atletas_id`, `faixas_id`, `fim`, `created`, `status`, `graus`, `modified`) VALUES
 (7, '2012-09-01', 6, 12, NULL, '2013-10-29 16:34:33', NULL, 4, '2013-10-29 17:06:22');
 
+
+--
+-- Extraindo dados da tabela `modalidades`
+--
+
+INSERT INTO `modalidades` (`id`, `nome`, `status`, `created`) VALUES
+(7, 'Jiu-Jitsu', 1, '2013-10-29 16:31:56'),
+(8, 'kung fu', 1, '2013-10-29 22:25:35'),
+(9, 'muay thai', 1, '2013-10-29 22:26:16'),
+(10, 'jiu-jitsu + kung fu', 1, '2013-10-29 22:29:35');
+
 --
 -- Extraindo dados da tabela `matriculas`
 --
@@ -764,15 +775,7 @@ INSERT INTO `mensalidades` (`id`, `status`, `matriculas_id`, `created`, `modifie
 (527, 0, 88, '2013-10-30 21:47:24', '2013-10-30 21:47:24', NULL, '2014-02-17', 100, NULL),
 (528, 0, 88, '2013-10-30 21:47:24', '2013-10-30 21:47:24', NULL, '2014-03-17', 100, NULL);
 
---
--- Extraindo dados da tabela `modalidades`
---
 
-INSERT INTO `modalidades` (`id`, `nome`, `status`, `created`) VALUES
-(7, 'Jiu-Jitsu', 1, '2013-10-29 16:31:56'),
-(8, 'kung fu', 1, '2013-10-29 22:25:35'),
-(9, 'muay thai', 1, '2013-10-29 22:26:16'),
-(10, 'jiu-jitsu + kung fu', 1, '2013-10-29 22:29:35');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
