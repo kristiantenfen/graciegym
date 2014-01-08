@@ -121,4 +121,30 @@ class Mensalidade extends AppModel {
 		
 	}
         
+        
+        public function atualiza($Matricula, $dados){
+            $conditions = array('Mensalidade.matriculas_id' => $Matricula['Matricula']['id'], 'Mensalidade.status' => 0);
+            $mensalidades  = $this->find('all', array('conditions'=> $conditions));
+            
+            $mesIncrementa = 0; 
+            foreach ($mensalidades as $mensalidade) {
+                    
+                            $dataPrimeiraParcela = explode( "-", $Matricula['Matricula']['vencimento']);
+                            $dia = $dataPrimeiraParcela[2];
+                            $mes = $dataPrimeiraParcela[1];
+                            $ano = $dataPrimeiraParcela[0];
+                            
+                        
+                        
+                        
+                            $mensalidade['Mensalidade']['vencimento'] =  date("Y-m-d", strtotime("+".$mesIncrementa." month", mktime(0, 0, 0, $mes, $dia, $ano)));
+                            $mesIncrementa +=1;
+                            echo $mesIncrementa;
+			if ($this->save($mensalidade)) {
+                                
+			} 
+            }
+            
+        }
+        
 }

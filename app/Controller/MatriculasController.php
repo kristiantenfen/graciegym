@@ -97,7 +97,9 @@ class MatriculasController extends AppController {
 			throw new NotFoundException(__('Invalid matricula'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Matricula->save($this->request->data)) {
+                    $Matricula = $this->Matricula->save($this->request->data);
+			if ($Matricula) {
+                                $this->Mensalidade->atualiza($Matricula, $this->request->data);
 				$this->Session->setFlash(__('The matricula has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
