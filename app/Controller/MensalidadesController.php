@@ -124,6 +124,7 @@ class MensalidadesController extends AppController {
             $options = array('conditions' => array('Mensalidade.' . $this->Mensalidade->primaryKey => $id));
             $this->request->data = $this->Mensalidade->find('first', $options);
         }
+        $this->set('mensalidade', $this->request->data);
         $matriculas = $this->Mensalidade->Matricula->find('list');
         $this->set(compact('matriculas'));
     }
