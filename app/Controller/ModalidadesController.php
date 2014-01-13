@@ -41,10 +41,10 @@ class ModalidadesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Modalidade->create();
 			if ($this->Modalidade->save($this->request->data)) {
-				$this->Session->setFlash(__('The modalidade has been saved'));
+				$this->Session->setFlash(__('Modalidade salva com sucesso'), 'sucesso');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The modalidade could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Modalidade não pode ser salva. Por favor, tente novamente.'), 'erro');
 			}
 		}
 	}
@@ -62,10 +62,10 @@ class ModalidadesController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Modalidade->save($this->request->data)) {
-				$this->Session->setFlash(__('The modalidade has been saved'));
+				$this->Session->setFlash(__('Modalidade salva com sucesso'), 'sucesso');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The modalidade could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Modalidade não pode ser salva. Por favor, tente novamente.'), 'erro');
 			}
 		} else {
 			$options = array('conditions' => array('Modalidade.' . $this->Modalidade->primaryKey => $id));

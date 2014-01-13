@@ -102,7 +102,7 @@ class AtletasController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Atleta->save($this->request->data)) {
-				$this->Session->setFlash(__('Atleta Salvo com Sucesso!'), 'sucesso');
+				$this->Session->setFlash('Atleta Salvo com Sucesso!', 'sucesso');
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Atleta não pode ser salavo. Por favor, tente novamente.'), 'erro');

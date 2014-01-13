@@ -58,6 +58,7 @@ class GraduacaosController extends AppController {
 			$this->Graduacao->create();
 			if ($this->Graduacao->save($this->request->data)) {
 				$this->Session->setFlash(__('Graduação salva com sucesso!'), 'sucesso');
+                                
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('Graduação não pode ser salva! Por favor, tente novamente'), 'erro');
@@ -115,7 +116,7 @@ class GraduacaosController extends AppController {
 			$this->Session->setFlash(__('Graduação deletada com sucesso!'), 'sucesso');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Graduação não pode ser deletada'));
+		$this->Session->setFlash(__('Graduação não pode ser deletada'), 'erro');
 		$this->redirect(array('action' => 'index'));
 	}
 }

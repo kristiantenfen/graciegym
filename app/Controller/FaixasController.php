@@ -41,10 +41,10 @@ class FaixasController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Faixa->create();
 			if ($this->Faixa->save($this->request->data)) {
-				$this->Session->setFlash(__('Faixa salva com sucesso!'), 'alert alert-success');
+				$this->Session->setFlash(__('Faixa salva com sucesso!'), 'sucesso');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The faixa could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Faixa não pode ser salvo. Por favor, tente novamente.'), 'erro');
 			}
 		}
 	}
@@ -62,10 +62,10 @@ class FaixasController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Faixa->save($this->request->data)) {
-				$this->Session->setFlash(__('The faixa has been saved'));
+				$this->Session->setFlash(__('Faixa salva com sucesso!'), 'sucesso');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The faixa could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Faixa não pode ser salvo. Por favor, tente novamente.'), 'erro');
 			}
 		} else {
 			$options = array('conditions' => array('Faixa.' . $this->Faixa->primaryKey => $id));
@@ -87,10 +87,10 @@ class FaixasController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Faixa->delete()) {
-			$this->Session->setFlash(__('Faixa deleted'));
+			$this->Session->setFlash(__('Faixa deletada com sucesso!'), 'sucesso');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Faixa was not deleted'));
+		$this->Session->setFlash(__('Faixa não pode ser deletada. Por favor, tente novamente.'), 'erro');
 		$this->redirect(array('action' => 'index'));
 	}
 }

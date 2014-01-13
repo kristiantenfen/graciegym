@@ -96,7 +96,7 @@ class MensalidadesController extends AppController {
         $this->set($params);
         
         if (!$this->Mensalidade->exists($id)) {
-            throw new NotFoundException(__('Invalid mensalidade'));
+            throw new NotFoundException(__('Mensalidade'));
         }
         $options = array('conditions' => array('Mensalidade.' . $this->Mensalidade->primaryKey => $id));
         $this->set('mensalidade', $this->Mensalidade->find('first', $options));
@@ -115,10 +115,10 @@ class MensalidadesController extends AppController {
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Mensalidade->save($this->request->data)) {
-                $this->Session->setFlash(__('The mensalidade has been saved'));
+                $this->Session->setFlash(__('Mensalidade salva com sucesso.'), 'sucesso');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The mensalidade could not be saved. Please, try again.'));
+                $this->Session->setFlash(__('Mensalidade não pode ser salva. Por favor, tente novamente'), 'erro');
             }
         } else {
             $options = array('conditions' => array('Mensalidade.' . $this->Mensalidade->primaryKey => $id));

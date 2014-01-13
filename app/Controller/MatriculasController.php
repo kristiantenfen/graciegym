@@ -53,11 +53,10 @@ class MatriculasController extends AppController {
  */
 	public function view($id = null) {
 		if (!$this->Matricula->exists($id)) {
-			throw new NotFoundException(__('Invalid matricula'));
+			throw new NotFoundException(__('Matricula inválida'), 'info');
 		}
 		$options = array('conditions' => array('Matricula.' . $this->Matricula->primaryKey => $id));
 		$matricula = $this->Matricula->find('first', $options);
-              //  var_dump($matricula);
                 $this->set('matricula', $matricula);
                 $this->set('mensalidades', $this->Mensalidade->find('all', array('conditions' => array('Mensalidade.matriculas_id' => $id))));
                 
@@ -74,10 +73,10 @@ class MatriculasController extends AppController {
 			$this->Matricula->create();
 			if ($this->Matricula->save($this->request->data)) {
                                 $this->Mensalidade->gerar($this->Matricula->getInsertID());
-				$this->Session->setFlash(__('The matricula has been saved'));
+				$this->Session->setFlash(__('Matrícula salva com sucesso'), 'sucesso');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The matricula could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Matrícula não pode ser salva. Por favor, tente novamente'), 'erro');
 			}
 		}
 		$atletas = $this->Matricula->Atleta->find('list');
@@ -94,16 +93,16 @@ class MatriculasController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Matricula->exists($id)) {
-			throw new NotFoundException(__('Invalid matricula'));
+			throw new NotFoundException(__('Matrícula inválida'), 'info');
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
                     $Matricula = $this->Matricula->save($this->request->data);
 			if ($Matricula) {
                                 $this->Mensalidade->atualiza($Matricula, $this->request->data);
-				$this->Session->setFlash(__('The matricula has been saved'));
+				$this->Session->setFlash(__('MAtrícula salva com sucesso.'), 'sucesso');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The matricula could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('Matrícula não pode ser salva. Por favor, tente novamente'), 'erro');
 			}
 		} else {
 			$options = array('conditions' => array('Matricula.' . $this->Matricula->primaryKey => $id));
@@ -126,14 +125,14 @@ class MatriculasController extends AppController {
 	public function delete($id = null) {
 		$this->Matricula->id = $id;
 		if (!$this->Matricula->exists()) {
-			throw new NotFoundException(__('Invalid matricula'));
+			throw new NotFoundException(__('Matrícula inválida.'), 'info');
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Matricula->delete()) {
-			$this->Session->setFlash(__('Matricula deleted'));
+			$this->Session->setFlash(__('Matricula deletada com sucesso'), 'sucesso');
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->Session->setFlash(__('Matricula was not deleted'));
+		$this->Session->setFlash(__('Matricula não pode ser deletada'), 'erro');
 		$this->redirect(array('action' => 'index'));
 	}
 }
