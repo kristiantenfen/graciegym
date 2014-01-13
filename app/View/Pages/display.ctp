@@ -10,14 +10,14 @@
         <table cellpadding="0" cellspacing="0" width="100%" class="table">
             <thead>
                 <tr> 
-                                            <th width='30%'<?php echo $this->Paginator->sort('Atleta'); ?></th>
+                                            <th width='20%'<?php echo $this->Paginator->sort('Atleta'); ?></th>
                                             <th width='15%'<?php echo $this->Paginator->sort('Modalidade'); ?></th>
-                                            <th width='25%'<?php echo $this->Paginator->sort('vencimento'); ?></th>
+                                            <th width='15%'<?php echo $this->Paginator->sort('vencimento'); ?></th>
                                             <th width='15%'<?php echo $this->Paginator->sort('Valor'); ?></th>
-                                            <th width='25%'<?php echo $this->Paginator->sort('Status'); ?></th>
+                                            <th width='15%'<?php echo $this->Paginator->sort('Status'); ?></th>
                                             
                     
-                    <th class="actions"><?php echo __('Ações'); ?></th>
+                    <th width="20%" class="actions"><?php echo __('Ações'); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +39,12 @@
 ?>&nbsp;</td>
                 
 		<td class="actions">
-		<?php	 echo $this->Html->link(__('Pagar'), array('controller' => 'mensalidades', 'action' => 'pagar', $mensalidade['Mensalidade']['id']), array('class' => 'btn-success-pay pagamento '.$mensalidade['Mensalidade']['id'], 'id' => $mensalidade['Mensalidade']['id'], 'title' => 'Efetuar pagamento'));?>
+		<?php	 echo $this->Html->link(__('Pagar'), array('controller' => 'mensalidades', 'action' => 'pagar', $mensalidade['Mensalidade']['id']), array('class' => 'btn btn-success pagamento '.$mensalidade['Mensalidade']['id'], 'id' => $mensalidade['Mensalidade']['id'], 'title' => 'Efetuar pagamento'));
+                         echo $this->Html->link(__('Editar'), array('controller' => 'mensalidades', 'action' => 'edit', $mensalidade['Mensalidade']['id']), array('class' => 'btn '.$mensalidade['Mensalidade']['id'], 'title' => 'Editar vencimento ')); 
+                         echo $this->Html->link(__('Anular'), array('action' => 'edit', $mensalidade['Mensalidade']['id']), array('class' => 'btn btn-warning anular '.$mensalidade['Mensalidade']['id'], 'title' => 'Anular'));
+ 
+                    
+                ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

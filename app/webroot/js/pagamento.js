@@ -34,7 +34,8 @@ $(function() {
     
      $('.anular').live('click', function(e){        
         var idMensalidade;        
-        idMensalidade = $(this).prev().attr('id');
+        idMensalidade = $(this).prev().prev().attr('id');
+       // alert(idMensalidade);
         $.post('/'+baseUrl+'/mensalidades/anular',{idMensalidade: idMensalidade}, function(data) {
             
             if(data){

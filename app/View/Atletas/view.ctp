@@ -1,5 +1,5 @@
 
-<div class="span8">                    
+<div class="span12">                    
 
     <div class="block-fluid ucard clearfix">
 
@@ -208,9 +208,10 @@
 		<td class="actions">
 			<?php 
                             if($status == 0){    
-                            echo $this->Html->link(__('Pagar'), array('controller' => 'mensalidades', 'action' => 'pagar', $mensalidade['Mensalidade']['id']), array('class' => 'btn-success-pay pagamento '.$mensalidade['Mensalidade']['id'], 'id' => $mensalidade['Mensalidade']['id'], 'title' => 'Efetuar pagamento')); 
-                            echo $this->Html->link(__('Anular'), array('action' => 'edit', $matricula['Matricula']['id']), array('class' => 'btn btn-warning anular '.$mensalidade['Mensalidade']['id'], 'title' => 'Anular')); 
-                            }
+                            echo $this->Html->link(__('Pagar'), array('controller' => 'mensalidades', 'action' => 'pagar', $mensalidade['Mensalidade']['id']), array('class' => 'btn btn-success pagamento '.$mensalidade['Mensalidade']['id'], 'id' => $mensalidade['Mensalidade']['id'], 'title' => 'Efetuar pagamento')); 
+echo $this->Html->link(__('Editar'), array('controller' => 'mensalidades', 'action' => 'edit', $mensalidade['Mensalidade']['id']), array('class' => 'btn '.$mensalidade['Mensalidade']['id'], 'title' => 'Editar vencimento ')); 
+                             echo $this->Html->link(__('Anular'), array('action' => 'edit', $mensalidade['Mensalidade']['id']), array('class' => 'btn btn-warning anular '.$mensalidade['Mensalidade']['id'], 'title' => 'Anular'));
+  }
                             ?>
 </td>
 	</tr>
