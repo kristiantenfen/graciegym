@@ -29,10 +29,12 @@
                         <div class='span3'>Horarios</div>
                         <?php 		echo $this->Form->input('Horarios',array('label' => false, 'div' => array('class' => 'span9') ));
  ?> 
-                       </div><?php echo $this->Form->end(array('label' => 'Salvar', 'id' => 'savaMatricula', 'class' => 'btn btn-success')); ?>
+                       </div><?php //echo $this->Form->end(array('label' => 'Salvar', 'id' => 'savaMatricula', 'class' => 'btn btn-success')); ?>
 
     </div>
-</div>
+    <br/>
+                           <?php echo $this->Form->end(array('label' => 'Salvar', 'id' => 'savaMatricula', 'class' => 'btn span3')); ?>
+
 
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-header">

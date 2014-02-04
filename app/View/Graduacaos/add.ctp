@@ -33,10 +33,12 @@
                         <div class='span3'>graus</div>
                         <?php 		echo $this->Form->input('graus',array('label' => false, 'div' => array('class' => 'span9') ));
  ?> 
-                       </div><?php echo $this->Form->end(array('label' => 'Salvar', 'id' => 'savaGraduacao', 'class' => 'btn btn-success')); ?>
+                       </div>
 
     </div>
-</div>
+    <br/>
+                           <?php echo $this->Form->end(array('label' => 'Salvar', 'id' => 'savaGraduacao', 'class' => 'btn span3')); ?>
+
 
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 <div class="modal-header">

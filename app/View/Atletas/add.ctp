@@ -56,7 +56,8 @@
                           
                            
 </div>
-                           <?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn btn-success')); ?>
+    <br/>
+                           <?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn span3')); ?>
     <!--</div>-->
 
 

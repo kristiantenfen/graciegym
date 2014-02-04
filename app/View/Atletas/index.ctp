@@ -1,19 +1,28 @@
 
 <div class="span12">      
-    <div class="headInfo">
+    <div class="widget">
+        <div class="input-append">
         <?php 
               echo $this->FilterForm->create();
-              echo $this->FilterForm->input('nome', array('label' => 'Nome', 'type' => 'text'));
-              echo $this->FilterForm->end(array('label' => 'Buscar', 'class' => 'btn btn-info', 'div' => true));
+              echo $this->FilterForm->input('nome', array('type' => 'text', 'id' => 'appendedInputButton','class' => 'span8', 'placeholder' => 'Nome'));
+              echo $this->FilterForm->end(array('label' => 'Buscar', 'class' => 'btn span3', 'div' => false));
+        
         ?>    
-        </div>  
+        </div>
+<!--        <div class="input-append">
+
+    <input id="widgetInputMessage" type="text" placeholder="search keyword..." name="search" style="width: 715px;"></input>
+    <button class="btn btn-success" type="button"></button>
+
+</div>-->
+    </div>
     <div class="head clearfix">
         <div class="isw-grid"></div>
         <h1><?php echo __('Atletas'); ?></h1>    
          
         <ul class="buttons">
 
-            <li>			<?php echo $this->Html->link(__(), array('action' => 'add', $atleta['Atleta']['id']), array('class' => 'isw-plus', 'title' => 'Adicionar '.atleta)); ?>
+            <li>			<?php echo $this->Html->link(__(), array('action' => 'add', $atleta['Atleta']['id']), array('class' => 'isw-plus', 'title' => 'Adicionar atleta')); ?>
             </li>
         </ul>                        
     </div>

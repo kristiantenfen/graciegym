@@ -42,28 +42,29 @@ $cakeDescription = __d('Gracie Gym', 'Gracie Gym: Jiu-Jitsu Defesa pessoal');
 	<?php
         
 
+                echo $this->Html->script('jquery');
                 
 //        
-//                echo $this->Html->script('admin/plugins/fancybox/jquery.fancybox.pack');
-//                echo $this->Html->script('admin/plugins/dataTables/jquery.dataTables.min');
-//                echo $this->Html->script('admin/plugins/cleditor/jquery.cleditor');
-//                echo $this->Html->script('admin/plugins/qtip/jquery.qtip-1.0.0-rc3.min');
-//                echo $this->Html->script('admin/plugins/animatedprogressbar/animated_progressbar');
-//                echo $this->Html->script('admin/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min');
-//                echo $this->Html->script('admin/plugins/validation/jquery.validationEngine');
-//                echo $this->Html->script('admin/plugins/validation/languages/jquery.validationEngine-en');
-//                echo $this->Html->script('admin/plugins/maskedinput/jquery.maskedinput-1.3.min');
-//                echo $this->Html->script('admin/plugins/uniform/uniform');
-//                echo $this->Html->script('admin/plugins/select2/select2.min');
-//                echo $this->Html->script('admin/plugins/sparklines/jquery.sparkline.min');
-//                echo $this->Html->script('admin/plugins/charts/jquery.flot.resize');
-//                echo $this->Html->script('admin/plugins/charts/jquery.flot.pie');
-//                echo $this->Html->script('admin/plugins/charts/jquery.flot.stack');
-//                echo $this->Html->script('admin/plugins/charts/excanvas.min');
-//                echo $this->Html->script('admin/plugins/charts/jquery.flot');
-//                echo $this->Html->script('admin/plugins/jquery/jquery.mousewheel.min');
-//                echo $this->Html->script('admin/plugins/cookie/jquery.cookies.2.2.0.min');
+                echo $this->Html->script('admin/plugins/fancybox/jquery.fancybox.pack');
+                echo $this->Html->script('admin/plugins/dataTables/jquery.dataTables.min');
+                echo $this->Html->script('admin/plugins/cleditor/jquery.cleditor');
+                echo $this->Html->script('admin/plugins/qtip/jquery.qtip-1.0.0-rc3.min');
+                echo $this->Html->script('admin/plugins/animatedprogressbar/animated_progressbar');
+                echo $this->Html->script('admin/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min');
+                echo $this->Html->script('admin/plugins/validation/jquery.validationEngine');
+                echo $this->Html->script('admin/plugins/validation/languages/jquery.validationEngine-en');
+                echo $this->Html->script('admin/plugins/maskedinput/jquery.maskedinput-1.3.min');
+                echo $this->Html->script('admin/plugins/uniform/uniform');
+                echo $this->Html->script('admin/plugins/select2/select2.min');
+                echo $this->Html->script('admin/plugins/sparklines/jquery.sparkline.min');
+                echo $this->Html->script('admin/plugins/charts/excanvas.min');
+                echo $this->Html->script('admin/plugins/charts/jquery.flot');
+                echo $this->Html->script('admin/plugins/jquery/jquery.mousewheel.min');
+                echo $this->Html->script('admin/plugins/cookie/jquery.cookies.2.2.0.min');
 
+                echo $this->Html->script('admin/plugins/charts/jquery.flot.resize');
+                echo $this->Html->script('admin/plugins/charts/jquery.flot.pie');
+                echo $this->Html->script('admin/plugins/charts/jquery.flot.stack');
                 
                 echo $this->Html->css('admin/fullcalendar.print');
                 echo $this->Html->css('padrao');
@@ -72,11 +73,10 @@ $cakeDescription = __d('Gracie Gym', 'Gracie Gym: Jiu-Jitsu Defesa pessoal');
 		echo $this->Html->meta('icon');
 
 		
-//                echo $this->Html->css('admin/stylesheet');
+                echo $this->Html->css('admin/stylesheet');
                 
-                echo $this->Html->script('jquery');
                 echo $this->Html->script('admin/plugins/bootstrap.min');
-//                echo $this->Html->script('admin/plugins');
+                echo $this->Html->script('admin/plugins');
                 echo $this->Html->script('mask');
                 echo $this->Html->script('admin/plugins/fullcalendar/fullcalendar.min');
                 echo $this->Html->script('buscaUser');
@@ -86,41 +86,29 @@ $cakeDescription = __d('Gracie Gym', 'Gracie Gym: Jiu-Jitsu Defesa pessoal');
                 echo $this->Html->script('pagamento');
                 
                 
+//                echo $this->Html->css('bootstrap/bootstrap-theme');
+//                echo $this->Html->css('bootstrap/bootstrap');
+//
+//                echo $this->Html->css('bootstrap/bootstrap');
 
+                
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
+                
+//                echo $this->Html->script(array('//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js','imgadmin/admin.js','/imgadmin/js/ckeditor/ckeditor.js'));
+                
 	?>
 </head>
 <body>
     <script type="text/javascript"> var baseUrl = '<?php echo $baseUrl;?>';</script>
     <div class="header">
-
+        
+        
     </div>
     
-    <div class="menu">                
-        
-<!--       <div class="breadLine">            
-            <div class="arrow"></div>
-            <div class="adminControl active">
-                Hi, Aqvatarius
-            </div>
-        </div>
-        
-        <div class="admin">
-            <div class="image">
-                <img src="img/users/aqvatarius.jpg" class="img-polaroid"/>                
-            </div>
-            <ul class="control">                
-                <li><span class="icon-comment"></span> <a href="messages.html">Messages</a> <a href="messages.html" class="caption red">12</a></li>
-                <li><span class="icon-cog"></span> <a href="forms.html">Settings</a></li>
-                <li><span class="icon-share-alt"></span> <a href="login.html">Logout</a></li>
-            </ul>
-            <div class="info">
-                <span>Welcom back! Your last visit: 24.10.2012 in 19:55</span>
-            </div>
-        </div>-->
-        
+    <div class="menu">  
+       
         <ul class="navigation">  
             <li class="active">
                 <a href="<?php echo $this->Html->url('/', true)?>">
@@ -156,6 +144,11 @@ $cakeDescription = __d('Gracie Gym', 'Gracie Gym: Jiu-Jitsu Defesa pessoal');
              <li class="active">
                 <a href="<?php echo $this->Html->url('/mensalidades', true)?>">
                     <span class="isw-grid"></span><span class="text">Mensalidades</span>
+                </a>
+            </li>
+             <li class="active">
+                <a href="<?php echo $this->Html->url('/usuarios', true)?>">
+                    <span class="isw-grid"></span><span class="text">Usuários</span>
                 </a>
             </li>
           <!--  <li class="openable">
@@ -330,8 +323,17 @@ $cakeDescription = __d('Gracie Gym', 'Gracie Gym: Jiu-Jitsu Defesa pessoal');
                     <li><a href="503.html"><span class="icon-warning-sign"></span><span class="text">503 Service Unavailable</span></a></li>
                     <li><a href="504.html"><span class="icon-warning-sign"></span><span class="text">504 Gateway Timeout</span></a></li>
                 </ul>
-            </li>                         -->
+            </li>    
+-->
         </ul>
+        <div class="dr"><span></span></div>
+        <div class=" active">
+            <ul class="control">            
+                <li><span class="icon-cog"></span> <a href="<?php echo $this->Html->url('/usuarios/view/'.$usuarioLogado['id'], true)?>">Meus dados</a></li>
+                <li><span class="icon-share-alt"></span> <a href="<?php echo $this->Html->url('/usuarios/logout', true);?>">Sair</a></li>
+            </ul>
+           
+        </div>
         
         <div class="dr"><span></span></div>
         

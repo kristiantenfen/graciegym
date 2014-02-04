@@ -14,10 +14,13 @@
                         <div class='span3'>Vencimento</div>
                         <?php 		echo $this->Form->input('vencimento',array('label' => false, 'class' => 'date', 'type' => 'text', 'value' => $this->Locale->date($mensalidade['Mensalidade']['vencimento']), 'div' => array('class' => 'span9') ));
  ?>  
-                       </div><?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn btn-success')); ?>
+                      
 
     </div>
 </div>
+        <br/>
+                           <?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn span3')); ?>
+
 
 
 

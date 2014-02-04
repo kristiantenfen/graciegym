@@ -61,14 +61,15 @@
                        </div>
                            
                            
-                           <?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn btn-success')); ?>
 
     </div>
-</div>
+    <br/>
+                           <?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn span3')); ?>
 
 
 
 
+<?php echo $this->UploadForm->load();?>
 
 
 
