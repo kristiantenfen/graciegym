@@ -49,7 +49,21 @@ class AppController extends Controller {
                 '<=' => 'less or equal to'
             )
     ));
-    public $components = array('RequestHandler', 'Session',
+    public $components = array(
+        'Auth' => array(
+            'authenticate' => array(
+                'Form' => array(
+                    'userModel' => 'Usuario',
+                    'fields' => array('username' => 'email', 'password' => 'senha')
+                )
+            ),
+            'authError' => 'Área Restrita! Efetue login!',
+            'loginError' => 'Nome de usuário ou senha não conferem!',
+            'logoutRedirect' => array('action' => 'login', 'controller' => 'usuarios'),
+            'loginRedirect' => array('controller' => '/'),
+            'loginAction' => array('controller' => 'usuarios', 'action' => 'login')
+        ),
+        'RequestHandler', 'Session',
         'FilterResults.FilterResults' => array(
             'auto' => array(
                 'paginate' => false,
@@ -60,14 +74,50 @@ class AppController extends Controller {
                 'concatenate' => 'AND',
             )
         )
+
+        
     );
     
 
+
+        public function deleteFile($file) {
+            $this->autoRender = false;
+            if ($this->request->is('delete')) {
+                $_GET['file'] = $file;
+                $this->Upload->deleteFile(array('image_versions' => array('' => array(), 'medium' => array(), 'thumbnail' => array())));
+            }
+        }
+
+
+        public function upload() {
+            $this->autoRender = false;
+            $this->Upload->uploadFile(array(
+                'image_versions' => array(
+                    '' => array(
+                        'max_width' => 500,
+                        'max_height' => 375,
+                        'jpeg_quality' => 95
+                    ),
+                    'medium' => array(
+                        'max_width' => 160,
+                        'max_height' => 160,
+                        'jpeg_quality' => 80
+                    ),
+                    'thumbnail' => array(
+                        'max_width' => 100,
+                        'max_height' => 100
+                    )
+                )
+            ));
+        }
+
     public function beforeFilter() {
         parent::beforeFilter();
-
-
+//        $this->Auth->allow('add', 'login', 'logout');
+        $this->Auth->allow('*');
+        
         $this->set('baseUrl', 'graciegym');
+        $this->set('usuarioLogado', $this->Auth->user());
 
         /**
          * Cria padrão de formato brasileiro para moeda

@@ -8,6 +8,7 @@ App::uses('AppController', 'Controller');
 class AtletasController extends AppController {
     
     public $uses = array('Atleta', 'Mensalidade', 'Matricula');
+    
 
 /**
  * index method
@@ -97,6 +98,7 @@ class AtletasController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+//            $this->layout = 'branco';
 		if (!$this->Atleta->exists($id)) {
 			throw new NotFoundException(__('Invalid atleta'));
 		}
