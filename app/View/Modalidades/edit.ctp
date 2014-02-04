@@ -14,10 +14,13 @@
                         <?php 		echo $this->Form->input('nome',array('label' => false, 'div' => array('class' => 'span9') ));
  ?> 
 
-                       </div><?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn btn-success')); ?>
+                      
 
     </div>
 </div>
+        <br/>
+                           <?php echo $this->Form->end(array('label' => 'Salvar', 'class' => 'btn span3')); ?>
+
 
 
 
